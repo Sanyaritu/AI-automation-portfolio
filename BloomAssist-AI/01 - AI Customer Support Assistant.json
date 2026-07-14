@@ -1,0 +1,116 @@
+{
+  "name": "01 - AI Customer Support Assistant",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5f2e6130-fb40-4792-91fd-0dd802246dfa",
+      "name": "When chat message received",
+      "webhookId": "087a0daf-29ce-4b74-8656-b27d59c0e624"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are BloomAssist AI, the customer support assistant for Bloom Boutique, an online fashion store.\n\nYour job is to answer customer questions politely, professionally, and concisely.\n\nStore Information:\n- Shipping takes 3–5 business days.\n- Returns are accepted within 30 days of delivery.\n- Refunds are processed within 5–7 business days after the returned item is received.\n- International shipping is available.\n- Customer support hours are Monday to Friday, 9:00 AM to 6:00 PM IST.\n\nRules:\n- Never invent information.\n- If you don't know the answer, clearly say you don't have enough information and offer to connect the customer with a human support representative.\n- Keep responses friendly and under 150 words."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "904e41c8-487d-4bca-be9f-a4c5041b8b91",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxTokens": 512
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "b268b501-cd95-4ee9-a7a0-de56162399c0",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "6wdJvdImeUm5BS5j",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        224,
+        208
+      ],
+      "id": "b0d7349f-66b7-46db-8d18-0c7c40df14c1",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "10172619-2955-4541-b480-8197304c3393",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "cd93c684a8566187621615d388281bf6025885cb32fd26a0805549cf0afca60f"
+  },
+  "nodeGroups": [],
+  "id": "ehZWhhqwqHKNvQ8W",
+  "tags": []
+}
