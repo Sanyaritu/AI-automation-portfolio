@@ -1,0 +1,95 @@
+# BloomAssist AI - Setup Guide
+
+## Overview
+
+This guide explains how to set up the BloomAssist AI Customer Support Assistant in n8n.
+
+---
+
+## Prerequisites
+
+Before importing the workflow, ensure you have:
+
+- An n8n Cloud or self-hosted n8n instance
+- An OpenRouter account
+- An OpenRouter API key
+
+---
+
+## Installation
+
+### Step 1: Import the Workflow
+
+1. Open your n8n workspace.
+2. Click **Import Workflow**.
+3. Select `workflow.json`.
+4. Save the workflow.
+
+---
+
+### Step 2: Configure OpenRouter
+
+1. Open the **OpenRouter Chat Model** node.
+2. Create a new OpenRouter credential.
+3. Paste your API key.
+4. Save the credential.
+
+---
+
+### Step 3: Execute the Workflow
+
+1. Click **Execute Workflow**.
+2. Open the built-in chat.
+3. Test with questions such as:
+
+- Hello
+- What is your return policy?
+- How long does shipping take?
+- Do you ship internationally?
+
+---
+
+## Current Features
+
+- AI-powered customer support
+- Conversation memory
+- Professional customer responses
+- Custom system prompt
+
+---
+
+## Customization
+
+To customize the chatbot:
+
+1. Open the **AI Agent** node.
+2. Edit the **System Message**.
+3. Replace the company name, policies, and support information with your own business details.
+4. Save the workflow.
+
+---
+
+## Troubleshooting
+
+### AI does not respond
+
+- Verify your OpenRouter API key.
+- Test the credential.
+- Save and execute the workflow again.
+
+### Incorrect responses
+
+Update the AI Agent's System Message with the correct business information.
+
+---
+
+## Future Enhancements
+
+The next version of BloomAssist AI will include:
+
+- Knowledge Base (RAG)
+- Document Search
+- Gmail Integration
+- Google Sheets Logging
+- Human Escalation
+- Website Chat Widget
