@@ -1,3 +1,7 @@
+![n8n](https://img.shields.io/badge/n8n-AI%20Automation-orange)
+![OpenRouter](https://img.shields.io/badge/OpenRouter-LLM-blue)
+![Status](https://img.shields.io/badge/Status-In%20Development-yellow)
+
 # 🌸 BloomAssist AI
 
 An AI-powered customer support assistant built with **n8n** that helps businesses automate customer interactions using AI.
